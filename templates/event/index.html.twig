@@ -1,20 +1,148 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EventController!{% endblock %}
+{% block title %}Event Management Dashboard{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <!-- Welcome Hero Section -->
+            <div class="hero-section bg-primary text-white rounded-3 p-5 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-4 fw-bold mb-3">
+                            <i class="bi bi-calendar-event"></i> Event Management System
+                        </h1>
+                        <p class="lead mb-4">
+                            Welcome to your comprehensive event management platform. Organize, track, and manage events with ease.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="{{ path('app_event_new') }}" class="btn btn-light btn-lg">
+                                <i class="bi bi-plus-circle"></i> Create Event
+                            </a>
+                            <a href="{{ path('app_event_list') }}" class="btn btn-outline-light btn-lg">
+                                <i class="bi bi-list"></i> View All Events
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="bi bi-calendar3 display-1"></i>
+                    </div>
+                </div>
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <!-- Quick Actions Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                 style="width: 60px; height: 60px;">
+                                <i class="bi bi-calendar3 fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Events</h5>
+                            <p class="card-text text-muted">Manage and organize all your events</p>
+                            <a href="{{ path('app_event_list') }}" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-right"></i> View Events
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                 style="width: 60px; height: 60px;">
+                                <i class="bi bi-tags fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Categories</h5>
+                            <p class="card-text text-muted">Organize events by categories</p>
+                            <a href="{{ path('app_categorie_index') }}" class="btn btn-outline-success">
+                                <i class="bi bi-arrow-right"></i> View Categories
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                 style="width: 60px; height: 60px;">
+                                <i class="bi bi-people fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Clients</h5>
+                            <p class="card-text text-muted">Manage client information</p>
+                            <a href="{{ path('app_client_index') }}" class="btn btn-outline-info">
+                                <i class="bi bi-arrow-right"></i> View Clients
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body text-center">
+                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                 style="width: 60px; height: 60px;">
+                                <i class="bi bi-journal-check fs-4"></i>
+                            </div>
+                            <h5 class="card-title">Registrations</h5>
+                            <p class="card-text text-muted">Track event registrations</p>
+                            <a href="{{ path('app_inscription_index') }}" class="btn btn-outline-warning">
+                                <i class="bi bi-arrow-right"></i> View Registrations
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/fourty-seven/ahmed/events-symfony/src/Controller/EventController.php</code></li>
-        <li>Your template at <code>/home/fourty-seven/ahmed/events-symfony/templates/event/index.html.twig</code></li>
-    </ul>
+            <!-- Features Section -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-lightning-charge"></i> Platform Features
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Event Management:</strong> Create, edit, and delete events
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Category Organization:</strong> Organize events by categories
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Client Management:</strong> Maintain client database
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Registration Tracking:</strong> Monitor event registrations
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Modern Interface:</strong> Bootstrap-powered responsive design
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check-circle text-success me-2"></i>
+                                    <strong>Easy Navigation:</strong> Intuitive user experience
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

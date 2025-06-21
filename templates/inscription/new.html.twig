@@ -1,11 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Inscription{% endblock %}
+{% block title %}New Registration{% endblock %}
 
 {% block body %}
-    <h1>Create new Inscription</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center mb-4">
+                <a href="{{ path('app_inscription_index') }}" class="btn btn-outline-secondary me-3">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h2 text-primary mb-0">
+                    <i class="bi bi-plus-circle"></i> New Registration
+                </h1>
+            </div>
 
-    {{ include('inscription/_form.html.twig') }}
-
-    <a href="{{ path('app_inscription_index') }}">back to list</a>
+            {{ include('inscription/_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}

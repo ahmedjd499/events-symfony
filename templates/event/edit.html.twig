@@ -1,10 +1,74 @@
 
+{% extends 'base.html.twig' %}
 
-<h1>Edit Event</h1>
+{% block title %}Edit Event{% endblock %}
 
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="d-flex align-items-center mb-4">
+                <a href="{{ path('app_event_list') }}" class="btn btn-outline-secondary me-3">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h2 text-primary mb-0">
+                    <i class="bi bi-pencil"></i> Edit Event
+                </h1>
+            </div>
 
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-calendar-event"></i> Event Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                {{ form_label(form.nom, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                                {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Enter event name'}}) }}
+                                {{ form_errors(form.nom) }}
+                            </div>
+                        </div>
 
-<form method="post">
-    {{ form_widget(form) }}
-    <input type="submit" value="Update Event">
-</form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form_label(form.dateD, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                                {{ form_widget(form.dateD, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.dateD) }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form_label(form.dateF, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                                {{ form_widget(form.dateF, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_errors(form.dateF) }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.lieu, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                            {{ form_widget(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Enter event location'}}) }}
+                            {{ form_errors(form.lieu) }}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.categorie, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                            {{ form_widget(form.categorie, {'attr': {'class': 'form-select'}}) }}
+                            {{ form_errors(form.categorie) }}
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i> Update Event
+                            </button>
+                            <a href="{{ path('app_event_list') }}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

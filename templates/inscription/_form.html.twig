@@ -1,4 +1,48 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="card shadow-sm">
+    <div class="card-header bg-info text-white">
+        <h5 class="card-title mb-0">
+            <i class="bi bi-journal-check"></i> Registration Information
+        </h5>
+    </div>
+    <div class="card-body">
+        {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.dateI, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                    {{ form_widget(form.dateI, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.dateI) }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form_label(form.etatI, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                    {{ form_widget(form.etatI, {'attr': {'class': 'form-select'}}) }}
+                    {{ form_errors(form.etatI) }}
+                </div>
+            </div>
+            
+            {% if form.client is defined %}
+                <div class="mb-3">
+                    {{ form_label(form.client, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                    {{ form_widget(form.client, {'attr': {'class': 'form-select'}}) }}
+                    {{ form_errors(form.client) }}
+                </div>
+            {% endif %}
+            
+            {% if form.event is defined %}
+                <div class="mb-3">
+                    {{ form_label(form.event, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                    {{ form_widget(form.event, {'attr': {'class': 'form-select'}}) }}
+                    {{ form_errors(form.event) }}
+                </div>
+            {% endif %}
+            
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> {{ button_label|default('Save Registration') }}
+                </button>
+                <a href="{{ path('app_inscription_index') }}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</div>

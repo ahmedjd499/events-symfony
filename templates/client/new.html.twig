@@ -3,9 +3,20 @@
 {% block title %}New Client{% endblock %}
 
 {% block body %}
-    <h1>Create new Client</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center mb-4">
+                <a href="{{ path('app_client_index') }}" class="btn btn-outline-secondary me-3">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+                <h1 class="h2 text-primary mb-0">
+                    <i class="bi bi-person-plus"></i> Add New Client
+                </h1>
+            </div>
 
-    {{ include('client/_form.html.twig') }}
-
-    <a href="{{ path('app_client_index') }}">back to list</a>
+            {{ include('client/_form.html.twig') }}
+        </div>
+    </div>
+</div>
 {% endblock %}
