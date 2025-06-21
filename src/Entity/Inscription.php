@@ -39,7 +39,7 @@ class Inscription
         return $this->dateI;
     }
 
-    public function setDateI(\DateTime $dateI): static
+    public function setDateI(?\DateTime $dateI): static
     {
         $this->dateI = $dateI;
 
