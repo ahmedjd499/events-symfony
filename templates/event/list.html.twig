@@ -1,0 +1,30 @@
+<table border="2">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date Start</th>
+        <th>Date End</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+{% for event in events %}
+    <tr>
+        <td>{{ event.id }}</td>
+        <td>{{ event.nom }}</td>
+        <td>{{ event.dateD|date('Y-m-d H:i:s') }}</td>
+        <td>{{ event.dateF|date('Y-m-d H:i:s') }}</td>
+        <td>{{ event.lieu }}</td>
+        <td>{{ event.categorie.nom }}</td>
+        <td>
+            {# <a href="{{ path('event_show', {'id': event.id}) }}">View</a> #}
+            <a href="{{ path('app_event_edit', {'id': event.id}) }}">Edit</a>
+            <a href="{{ path('app_event_delete', {'id': event.id}) }}">Delete</a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="6">No events found.</td>
+    </tr>
+{% endfor %}
+</table>

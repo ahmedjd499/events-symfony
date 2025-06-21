@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouvel événement{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Créer un nouvel événement</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+                <div class="mb-3">
+                    {{ form_label(form.nom) }}
+                    {{ form_widget(form.nom) }}
+                    {{ form_errors(form.nom) }}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form_label(form.dateD) }}
+                        {{ form_widget(form.dateD) }}
+                        {{ form_errors(form.dateD) }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        {{ form_label(form.dateF) }}
+                        {{ form_widget(form.dateF) }}
+                        {{ form_errors(form.dateF) }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.lieu) }}
+                    {{ form_widget(form.lieu) }}
+                    {{ form_errors(form.lieu) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_label(form.categorie) }}
+                    {{ form_widget(form.categorie) }}
+                    {{ form_errors(form.categorie) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_widget(form.submit) }}
+                    <a href="{{ path('app_event_list') }}" class="btn btn-secondary ms-2">Annuler</a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
