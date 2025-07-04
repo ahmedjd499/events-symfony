@@ -21,13 +21,14 @@ class Inscription
     #[ORM\Column(enumType: EtatI::class)]
     private ?EtatI $etatI = null;
 
-    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Client $client = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Event $event = null;
+
+    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -58,18 +59,7 @@ class Inscription
         return $this;
     }
 
-    public function getClient(): ?Client
-    {
-        return $this->client;
-    }
-
-    public function setClient(?Client $client): static
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
+  
     public function getEvent(): ?Event
     {
         return $this->event;
@@ -78,6 +68,18 @@ class Inscription
     public function setEvent(?Event $event): static
     {
         $this->event = $event;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
